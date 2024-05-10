@@ -10,6 +10,7 @@ import (
 
 	. "github.com/onsi/gomega"
 	configv1 "github.com/openshift/api/config/v1"
+	_ "github.com/openshift/api/config/v1/zz_generated.crd-manifests"
 	machinev1 "github.com/openshift/api/machine/v1beta1"
 	"github.com/vmware/govmomi/simulator"
 	corev1 "k8s.io/api/core/v1"
@@ -62,7 +63,7 @@ func TestMachineEvents(t *testing.T) {
 	testEnv := &envtest.Environment{
 		CRDDirectoryPaths: []string{
 			filepath.Join("..", "..", "..", "install"),
-			filepath.Join("..", "..", "..", "vendor", "github.com", "openshift", "api", "config", "v1"),
+			filepath.Join("..", "..", "..", "vendor", "github.com", "openshift", "api", "config", "v1", "zz_generated.crd-manifests"),
 			filepath.Join("..", "..", "..", "third_party", "cluster-api", "crd")},
 	}
 
